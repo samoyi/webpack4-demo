@@ -1,28 +1,19 @@
 <template>
-  <div id="app">
-      <h1>webpack4-demo</h1>
-      <p>app.vue</p>
-      <Foo/>
-  </div>
+    <div id="app">
+        <!-- <router-view/> -->
+        <h1>webpack4-demo</h1>
+        <p>app.vue</p>
+        <Foo/>
+    </div>
 </template>
 
 <script>
-import Foo from './components/Foo'
+import Foo from './components/Foo/main'
 
 export default {
-  name: 'App',
-  components: {
-    Foo,
-  },
+    name: 'App',
+    components: {
+      Foo,
+    },
 }
 </script>
-
-<style scoped lang="scss">
-#app {
-    color: #fb7299;
-    p {
-        color: #00a1d6;
-    }
-}
-
-</style>

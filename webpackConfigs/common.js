@@ -27,95 +27,92 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.css$/,
-            //     use: [
-            //         'style-loader',
-            //         'css-loader'
-            //     ],
-            // },
-            // {
-            //     test: /\.scss$/,
-            //     use: [
-            //         'style-loader', // 创建行内 <style>
-            //         'css-loader', // 把 css 编译为 CommonJS
-            //         'sass-loader', // 把 scss 编译为 css
-            //     ],
-            // },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/, // 不编译 node_modules 里的 js 文件
-            //     loader: 'babel-loader',
-            // },
-            // {
-            //     test: /\.vue$/,
-            //     loader: 'vue-loader',
-            // },
-            // // {
-            // //     test: /\.(jpe?g|png|gif|webp|svg)$/,
-            // //     loader: 'url-loader',
-            // //     options: {
-            // //         limit: 8192, // 大于 8KiB 的文件改为使用 file-loader
-            // //     },
-            // // },
-            // {
-            //     test: /\.(jpe?g|png|gif|webp|svg)$/,
-            //     loader: 'file-loader',
-            // },
             {
                 test: /\.css$/,
                 use: [
-                    'vue-style-loader',
+                    'style-loader',
                     'css-loader'
                 ],
             },
             {
                 test: /\.scss$/,
                 use: [
-                    'vue-style-loader',
-                    'css-loader',
-                    'sass-loader'
+                    'style-loader', // 创建行内 <style>
+                    'css-loader', // 把 css 编译为 CommonJS
+                    'sass-loader', // 把 scss 编译为 css
                 ],
             },
             {
-                test: /\.sass$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader',
-                    'sass-loader?indentedSyntax'
-                ],
-            },
-            {
+                // 使用 babel-loader 编译 js 文件
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: /node_modules/, // 不编译 node_modules 里的 js 文件
                 loader: 'babel-loader',
             },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-                        // the "scss" and "sass" values for the lang attribute to the right configs here.
-                        // other preprocessors should work out of the box, no loader config like this necessary.
-                        'scss': [
-                            'vue-style-loader',
-                            'css-loader',
-                            'sass-loader'
-                        ],
-                        'sass': [
-                            'vue-style-loader',
-                            'css-loader',
-                            'sass-loader?indentedSyntax'
-                        ]
-                    }
-                    // other vue-loader options go here
-                }
             },
             {
-                test: /\.(jpg|png)$/,
-                loader: 'file-loader',
+                test: /\.(jpe?g|png|gif|webp|svg)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 8192, // 大于 8KiB 的文件改为使用 file-loader
+                },
             },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         'vue-style-loader',
+            //         'css-loader'
+            //     ],
+            // },
+            // {
+            //     test: /\.scss$/,
+            //     use: [
+            //         'vue-style-loader',
+            //         'css-loader',
+            //         'sass-loader'
+            //     ],
+            // },
+            // {
+            //     test: /\.sass$/,
+            //     use: [
+            //         'vue-style-loader',
+            //         'css-loader',
+            //         'sass-loader?indentedSyntax'
+            //     ],
+            // },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     loader: 'babel-loader',
+            // },
+            // {
+            //     test: /\.vue$/,
+            //     loader: 'vue-loader',
+            //     options: {
+            //         loaders: {
+            //             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+            //             // the "scss" and "sass" values for the lang attribute to the right configs here.
+            //             // other preprocessors should work out of the box, no loader config like this necessary.
+            //             'scss': [
+            //                 'vue-style-loader',
+            //                 'css-loader',
+            //                 'sass-loader'
+            //             ],
+            //             'sass': [
+            //                 'vue-style-loader',
+            //                 'css-loader',
+            //                 'sass-loader?indentedSyntax'
+            //             ]
+            //         }
+            //         // other vue-loader options go here
+            //     }
+            // },
+            // {
+            //     test: /\.(jpg|png)$/,
+            //     loader: 'file-loader',
+            // },
         ],
     },
     plugins: [
