@@ -4,11 +4,14 @@ require("@babel/polyfill");
 import Vue from 'vue';
 import App from './App'; // vue 根实例的唯一子级组件，是其他所有实际编写组件的容器
 
+import router from './router/index';
+
 // vue 根实例
 new Vue({
     el: '#app',
     components: {
         App,
     },
+    router,
     template: `<App/>`,
 });

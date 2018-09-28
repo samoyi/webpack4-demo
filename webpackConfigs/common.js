@@ -19,10 +19,12 @@ module.exports = {
     resolve: {
         // 在默认的四个之上在加上`.vue`后缀，这样 import `.vue` 文件时不需要写后缀
         extensions: ['.wasm', '.mjs', '.js', '.json', '.vue'],
-        // 默认加载的 vue 模块是仅运行时的，不带模板编译功能。这里参考 vue-cli 的配置，
-        // 使用完整版，使其可以编译模板
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
+            // 默认加载的 vue 模块是仅运行时的，不带模板编译功能。这里参考 vue-cli 的配置，
+            // 使用完整版，使其可以编译模板
+            'vue$': 'vue/dist/vue.esm.js',
+            // src 目录的绝对路径，方便引用
+            '@': path.resolve(__dirname, '../src'),
         },
     },
     module: {

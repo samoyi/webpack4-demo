@@ -1,8 +1,6 @@
 <template>
   <div id="foo">
-      <h2>Foo</h2>
-      <img src="../../assets/imgs/kibunn.jpg" />
-      <div></div>
+      <h2>Bar</h2>
   </div>
 </template>
 

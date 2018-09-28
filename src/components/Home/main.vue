@@ -1,6 +1,7 @@
 <template>
   <div id="foo">
-      <h2>Foo</h2>
+      <h2>Home</h2>
+      <img src="../../assets/imgs/kibunn.jpg" />
   </div>
 </template>
 
@@ -8,6 +9,7 @@
 export default {
   name: 'Foo'
 }
+
 </script>
 
 <style scoped lang="scss">
