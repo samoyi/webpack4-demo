@@ -10,7 +10,7 @@ import Foo from './routes/Foo.js';
 import Bar from './routes/Bar.js';
 import User from './routes/User.js';
 
-const routes = [Home, Foo, Bar, User];
+const routes = [Home, Foo, Bar, User, {path: '*', redirect: '/home'}];
 
 export default new Router({
     routes,

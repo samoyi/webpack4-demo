@@ -5,6 +5,7 @@ export default {
     // user 组件带参数，指定用户名
     path: '/user/:username',
     component: User,
+    props: true, // 解耦组件和路由
     // user 组件的嵌套路由，通过 article 组件显示当前用户的指定 id 的文章
     children: [
         {

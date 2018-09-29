@@ -1,22 +1,16 @@
+<!-- 首页框架组件 -->
+<!-- 通过两个子路由加载两个内容子组件 -->
 <template>
-  <div id="foo">
-      <h2>Home</h2>
-      <img src="../../assets/imgs/kibunn.jpg" />
-  </div>
+    <div id="Home">
+        <h2>Home</h2>
+        <!-- 使用命名试图同时加载两个组件 -->
+        <router-view name="greeting"></router-view>
+        <router-view name="album"></router-view>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'Foo'
+    name: 'Home'
 }
-
 </script>
-
-<style scoped lang="scss">
-    #foo{
-        div{
-            width: 200px; height: 200px;
-            background-image: url("../../assets/imgs/kibunn.jpg");
-        }
-    }
-</style>

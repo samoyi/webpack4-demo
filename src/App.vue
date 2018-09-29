@@ -4,7 +4,7 @@
         <header>
             <nav>
                 <ul>
-                    <li><router-link to="/">首页</router-link></li>
+                    <li><router-link to="/home">首页</router-link></li>
                     <li><router-link to="/foo">Foo 版块</router-link></li>
                     <li><router-link to="/bar">Bar 版块</router-link></li>
                     <li><router-link :to="'/user/' + username">User 页面</router-link></li>
