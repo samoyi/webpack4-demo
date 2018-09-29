@@ -16,6 +16,13 @@ module.exports = {
         path: path.resolve(__dirname, '../dist'),
         // 打包的文件名在开发环境和生产环境不同，生产环境会带上 hash
     },
+    optimization: {
+        // 防止多个模块重复打包相同依赖。
+        // 参考[文档](https://webpack.js.org/guides/code-splitting/#prevent-duplication)
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
     resolve: {
         // 在默认的四个之上在加上`.vue`后缀，这样 import `.vue` 文件时不需要写后缀
         extensions: ['.wasm', '.mjs', '.js', '.json', '.vue'],
