@@ -7,6 +7,7 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     output: {
         filename: '[name].bundle.js',
+        chunkFilename: '[name].bundle.js',
     },
     devServer: { // 开发服务器读取文件的目录
         contentBase: '/dist',
