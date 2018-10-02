@@ -1,11 +1,20 @@
 <template>
   <div id="foo">
       <h2>Foo</h2>
+      index: {{ index }}
+      <br />
+      age: {{ age }}
+      <br />
+      isAdult: {{ isAdult }}
+      <input type="button" @click="ageIncrement" value="加一岁" />
+      <input type="button" @click="ageDecrement" value="减一岁" />
       <public-content :title="title" :content="content"></public-content>
   </div>
 </template>
 
 <script>
+
+import {mapState, mapGetters, mapMutations} from 'vuex';
 
 export default {
     name: 'Foo',
@@ -20,6 +29,30 @@ export default {
             title: 'foo-title',
             content: 'foo-content',
         };
+    },
+    computed: {
+        ...mapState({
+            index(state){
+                return state.foo.index;
+            },
+            age(state){
+                return state.foo.age;
+            },
+        }),
+        ...mapGetters(['isAdult']),
+    },
+    methods: {
+        // 因为下面两个 mutation 是 Foo 和 Bar 公用的，所以要通过参数告诉 store
+        // 应该修改哪个模块的 state
+        ageIncrement(){
+            this.$store.commit('AGE_INCREMENT', {module: 'foo'});
+        },
+        ageDecrement(){
+            this.$store.commit({
+                type: 'AGE_DECREMENT',
+                module: 'foo',
+            });
+        },
     },
 }
 </script>
