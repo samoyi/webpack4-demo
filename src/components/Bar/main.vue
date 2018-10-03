@@ -10,6 +10,8 @@
       is80s: {{ is80s }}
       <input type="button" @click="ageIncrement({module: 'bar'})" value="加一岁" />
       <input type="button" @click="ageDecrement({module: 'bar'})" value="减一岁" />
+      <br />
+      输入年龄：<input type="text" v-model="age" />
       <public-content :title="title" :content="content"></public-content>
   </div>
 </template>
@@ -33,14 +35,19 @@ export default {
         };
     },
     computed: {
-        ...mapState({
-            index(state){
-                return state.bar.index + 2;
+        index(){
+            return this.$store.state.bar.index;
+        },
+        age: {
+            get(){
+                return this.$store.state.bar.age;
             },
-            age(state){
-                return state.bar.age - 2;
+            // 通过给 v-model 绑定的 age 设置 setter，让表单输入可以通过 commit 的
+            // 方式修改该数据
+            set(v){
+                this.$store.commit('setAge', {age: v});
             },
-        }),
+        },
         ...mapGetters({
             realAge: 'getRealAge',
             is80s: 'is80s',

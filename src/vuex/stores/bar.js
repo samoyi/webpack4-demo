@@ -2,7 +2,7 @@
 
 export default {
     state: {
-        index: 3,
+        index: 2,
         age: 33,
     },
     getters: {
@@ -18,5 +18,11 @@ export default {
         getRealAge(state){
             return state.age;
         },
+    },
+    mutations: {
+        // 通过表单直接设置 bar 模块的 age
+        setAge(state, payload){
+            state.age = payload.age;
+        }
     },
 };

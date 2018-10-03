@@ -13,7 +13,7 @@ import {AGE_INCREMENT, AGE_DECREMENT} from './mutations.js';
 import plugins from './plugins.js';
 
 export default new Vuex.Store({
-    strict: true,
+    strict: process.env.NODE_ENV === 'development', // 只在开发环境下使用严格模式
     plugins,
     modules: {
         foo,
@@ -29,7 +29,4 @@ export default new Vuex.Store({
             state[payload.module].age--;
         },
     },
-    // state: {
-    //     age: 16,
-    // },
 });
