@@ -9,7 +9,12 @@ import bar from './stores/bar.js';
 // 当前模块所需的 mutation 类型常量
 import {AGE_INCREMENT, AGE_DECREMENT} from './mutations.js';
 
+// 插件
+import plugins from './plugins.js';
+
 export default new Vuex.Store({
+    strict: true,
+    plugins,
     modules: {
         foo,
         bar,
@@ -24,4 +29,7 @@ export default new Vuex.Store({
             state[payload.module].age--;
         },
     },
+    // state: {
+    //     age: 16,
+    // },
 });

@@ -8,13 +8,15 @@
       isAdult: {{ isAdult }}
       <input type="button" @click="ageIncrement" value="加一岁" />
       <input type="button" @click="ageDecrement" value="减一岁" />
+      <input type="button" @click="asyncIncrement" value="异步加一岁" />
+      {{rootAge}}
       <public-content :title="title" :content="content"></public-content>
   </div>
 </template>
 
 <script>
 
-import {mapState, mapGetters, mapMutations} from 'vuex';
+import {mapState, mapGetters, mapMutations, mapActions} from 'vuex';
 
 export default {
     name: 'Foo',
@@ -38,6 +40,7 @@ export default {
             age(state){
                 return state.foo.age;
             },
+            rootAge: 'age',
         }),
         ...mapGetters(['isAdult']),
     },
@@ -52,6 +55,12 @@ export default {
                 type: 'AGE_DECREMENT',
                 module: 'foo',
             });
+        },
+        // 通过 action 异步年龄加一，并接收完成回调
+        async asyncIncrement(){
+            console.log('异步 +1 开始');
+            await this.$store.dispatch('async_increment');
+            console.log('异步 +1 完成');
         },
     },
 }
