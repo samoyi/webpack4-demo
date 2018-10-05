@@ -6,14 +6,9 @@ export default {
         age: 33,
     },
     getters: {
-        is80s(state, getters){
-            if (getters.isAdult){
-                let year = (new Date).getFullYear() - state.age
-                return (year >= 1980) && (year < 1990);
-            }
-            else {
-                return false;
-            }
+        is80s(state){
+            let year = (new Date).getFullYear() - state.age
+            return (year >= 1980) && (year < 1990);
         },
         getRealAge(state){
             return state.age;

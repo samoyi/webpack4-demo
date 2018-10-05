@@ -12,10 +12,11 @@ module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: './src/index.js',
     output: {
-        // 打包输出目录的绝对路径
-        path: path.resolve(__dirname, '../dist'),
-        // 打包的文件名和非入口文件名在开发环境和生产环境不同，生产环境会带上 hash，
-        // 所以不在这里设置
+        // 打包输出目录因为在开发环境会直接生成在 dist，而在生产环境会放在带有本次构建
+        //  hash 的文件夹里，所以在 dev.js 和 prod.js 里单独设置
+
+        // 打包的文件名和非入口文件名在开发环境和生产环境不同，生产环境也会带上 hash，
+        // 所以也不在这里设置
     },
     resolve: {
         // 在默认的四个之上在加上`.vue`后缀，这样 import `.vue` 文件时不需要写后缀
@@ -55,67 +56,6 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
             },
-            {
-                test: /\.(jpe?g|png|gif|webp|svg)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 8192, // 大于 8KiB 的文件改为使用 file-loader
-                },
-            },
-            // {
-            //     test: /\.css$/,
-            //     use: [
-            //         'vue-style-loader',
-            //         'css-loader'
-            //     ],
-            // },
-            // {
-            //     test: /\.scss$/,
-            //     use: [
-            //         'vue-style-loader',
-            //         'css-loader',
-            //         'sass-loader'
-            //     ],
-            // },
-            // {
-            //     test: /\.sass$/,
-            //     use: [
-            //         'vue-style-loader',
-            //         'css-loader',
-            //         'sass-loader?indentedSyntax'
-            //     ],
-            // },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/,
-            //     loader: 'babel-loader',
-            // },
-            // {
-            //     test: /\.vue$/,
-            //     loader: 'vue-loader',
-            //     options: {
-            //         loaders: {
-            //             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            //             // the "scss" and "sass" values for the lang attribute to the right configs here.
-            //             // other preprocessors should work out of the box, no loader config like this necessary.
-            //             'scss': [
-            //                 'vue-style-loader',
-            //                 'css-loader',
-            //                 'sass-loader'
-            //             ],
-            //             'sass': [
-            //                 'vue-style-loader',
-            //                 'css-loader',
-            //                 'sass-loader?indentedSyntax'
-            //             ]
-            //         }
-            //         // other vue-loader options go here
-            //     }
-            // },
-            // {
-            //     test: /\.(jpg|png)$/,
-            //     loader: 'file-loader',
-            // },
         ],
     },
     plugins: [
