@@ -8,7 +8,7 @@ module.exports = merge(common, {
         // 每次生产构建，生成的所有文件都放在本次 hash 命名的文件夹里
         path: path.resolve(__dirname, '../dist') + '/[hash]',
 
-        // 生产构建的 chunk 输出都带  chunkhash
+        // 生产构建的 chunk 输出都带 chunkhash
         filename: '[name].[chunkhash:8].js',
         chunkFilename: '[name].[chunkhash:8].bundle.js',
     },
@@ -22,7 +22,7 @@ module.exports = merge(common, {
                 options: {
                     limit: 8192, // 大于 8KiB 的文件将自动改为使用 file-loader
                     name: 'images/[name].[hash:7].[ext]',
-                    // 生产环境相比开发，输出的文件将放在 CDN
+                    // 生产环境相比开发，假定输出的文件将放在 CDN 的如下目录内
                     publicPath: 'http://www.mycdn.com/assets/'
                 },
             },

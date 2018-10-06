@@ -20,8 +20,8 @@ export default new Vuex.Store({
         bar,
     },
     mutations: {
-        // 年龄递增递减的 mutation 是 Foo 模块和 Bar 模块公用的，所以直接设定到这里
-        // 并且要通过 payload.module 来获知改变哪个模块的 state
+        // 年龄递增递减的 mutation 是 Foo 模块和 Bar 模块共用的，所以直接设定到这里
+        // 并且要通过 payload.module 来获知改变哪个模块的 age
         [AGE_INCREMENT](state, payload){
             state[payload.module].age++;
         },

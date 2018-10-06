@@ -22,6 +22,7 @@ export default {
             vm.article = `显示请求到的 ${username} 的第 ${id} 篇文章`;
         });
     },
+    // 切换该用户的不同文章
     beforeRouteUpdate(to, from, next){
         const {username, id} = to.params;
         // 应该在这里请求文章，省略

@@ -10,6 +10,7 @@ import Foo from './routes/Foo.js';
 import Bar from './routes/Bar.js';
 import User from './routes/User.js';
 
+// 最后一项路由设置保证其他这里不包括的路径都路由至 /home
 const routes = [Home, Foo, Bar, User, {path: '*', redirect: '/home'}];
 
 export default new Router({
